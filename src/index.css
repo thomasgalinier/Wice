@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+  --font-primary: 'Poppins', sans-serif;
+  --background: #FFFFFF;
+  --foreground: #010404;
+  --card: #FFFFFF;
+  --card-foreground: #010404;
+  --popover: #FFFFFF;
+  --popover-foreground: #010404;
+  --primary: #455E5F;
+  --primary-foreground: #FFFFFF;
+  --primary-hover: #455E5FCC;
+  --secondary: #CACECE;
+  --secondary-foreground: #313535;
+  --secondary-hover: #CACECECC;
+  --muted: #EDF3F3;
+  --muted-foreground: #494B4B;
+  --accent: #AABABB;
+  --accent-foreground: #171C1C;
+  --destructive: #C92508;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #455E5F;
+}

@@ -1,0 +1,54 @@
+@import url("../../index.css");
+button{
+    height: 45px;
+    padding: 5px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: var(--font-primary);
+}
+.primary {
+  background-color: var(--primary);
+  border: none;
+  color: var(--primary-foreground);
+
+}
+.primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.secondary{
+    background-color: var(--secondary);
+    border: none;
+    color: var(--secondary-foreground);
+}
+.secondary:hover{
+    background-color: var(--secondary-hover);
+}
+
+.outline {
+    background-color: var(--background);
+    color: var(--background-foreground);
+    border: 2px solid var(--border);
+}
+.outline:hover{
+    border: 2px solid var(--primary);
+}
+
+.link{
+    color: var(--primary);
+    border: none;
+    background-color: var(--background);
+}
+.link:hover{
+    text-decoration:  var(--primary) underline;
+}
+
+.disabled{
+    cursor: default;
+    border: none;
+    background-color: var(--muted);
+
+}
+
+
