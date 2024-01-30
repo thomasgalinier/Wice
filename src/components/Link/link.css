@@ -1,6 +1,7 @@
 @import url("../../index.css");
 a{
-    padding: 5px 20px;
+    height: 35px;
+    
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
@@ -12,16 +13,19 @@ a{
 
 }
 .primary {
+    padding: 5px 20px;
   background-color: var(--primary);
   border: none;
   color: var(--primary-foreground);
 
 }
 .primary:hover {
+
     background-color: var(--primary-hover);
 }
 
 .secondary{
+    padding: 5px 20px;
     background-color: var(--secondary);
     border: none;
     color: var(--secondary-foreground);
@@ -31,6 +35,7 @@ a{
 }
 
 .outline {
+    padding: 5px 20px;
     background-color: var(--background);
     color: var(--background-foreground);
     border: 2px solid var(--border);
@@ -40,19 +45,42 @@ a{
 }
 
 .link{
+    position: relative;
+    height: 20px;
     color: var(--primary);
     border: none;
     background-color: var(--background);
+    align-items: center;
+    width: 100%;
+    padding: 0 5px;
+    letter-spacing: 0.5px;
+    left: 0;
+    background-color: transparent;
+    
+
 }
-.link:hover{
-    text-decoration:  var(--primary) underline;
+.link:after{
+    content:"";
+    position: absolute;
+    background-color: var(--primary);
+    height: 3px;
+    width: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+.link:hover:after{
+ width: 100%;
+ 
+}
+li a {
+    padding: 1.5rem;
 }
 
 .disabled{
     cursor: default;
     border: none;
     background-color: var(--muted);
-
+    
 }
 
 

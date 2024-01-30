@@ -1,0 +1,88 @@
+h1, p {
+    font-family: var(--font-primary);
+}
+
+section{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    height: calc(100vh - 135px);
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--background2)  ;
+}
+h1{
+    color: var(--primary);
+    font-size: 2.5rem;
+    
+}
+.presentation-container{
+  display: flex; 
+  width: 100%;
+  justify-content: space-around;
+  
+}
+.presentation-text{
+    margin-top: 5rem;
+    width:30%;
+}
+.presentation-text button
+{
+    margin-top: 5rem;
+}
+p{
+    font-size: 1.2rem;
+    color: var(--primary);
+
+}
+.presentation-img-container{
+    width: 40%;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+.button-container{
+    display: none;
+}
+@media only screen and (max-width:768px) {
+    
+    section {
+        justify-content: space-around;
+    }
+    .presentation-img-container{
+        display: none;
+    }
+    .presentation-text{
+        width: 80%;
+        margin: 2rem;
+    }
+    .auth{
+        display: block;
+    }
+    .presentation-container{
+
+        display: flex;
+        flex-direction: column;
+    }
+    .button-container{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        margin: 1rem;
+    }
+    .auth{
+        display: flex;
+        gap: 3rem;
+    }
+    h1{
+        text-align: center;
+    }
+    .presentation-text button{
+        display: none;
+    }
+  }
+
+
+

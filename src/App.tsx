@@ -1,13 +1,12 @@
-import Button from "./components/Button/Button"
-import Link from "./components/Link/Link"
-
+import Header from "./components/Header"
+import Home from "./scenes/Home/Home"
 
 function App() {
   return(
-    <div style={{display:'flex', gap:'10px'}}>
-      <Button variant="primary">Connexion</Button>
-      <Link  href='#'variant="primary">Connexion</Link>
-    </div>
+    <>
+      <Header />
+      <Home />
+    </>
   )
 }
 

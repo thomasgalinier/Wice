@@ -25,7 +25,16 @@ button{
 .secondary:hover{
     background-color: var(--secondary-hover);
 }
+.third{
 
+        background-color: var(--third);
+        border: none;
+        color: var(--third-foreground);
+      
+}
+.third:hover{
+    background-color: var(--third-hover);
+}
 .outline {
     background-color: var(--background);
     color: var(--background-foreground);

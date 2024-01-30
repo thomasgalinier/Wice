@@ -1,7 +1,7 @@
 import "./button.css";
 type Props = {
   children: string;
-  variant: "primary" | "secondary" | "outline" | "link" | "disabled";
+  variant: "primary" | "secondary" | "outline" | "link" | "disabled" | "third";
 };
 function Button({ children, variant }: Props) {
   const buttonClassName = variant;
