@@ -8,13 +8,11 @@ function Header() {
         <p>WICE</p>
       </div>
       <div className="auth-links">
-        <Link variant="outline" href="#">
-          Connexion
-        </Link>
         <Link variant="primary" href="#">
-          Inscription
+          Connectez-vous
         </Link>
       </div>
+
     </header>
   );
 }

@@ -1,9 +1,8 @@
 @import url("../../index.css");
 a{
-    height: 35px;
-    
-    border-radius: 4px;
-    font-size: 16px;
+
+    border-radius: 4%;
+    font-size: 1rem;
     cursor: pointer;
     font-family: var(--font-primary);
     display: flex; 
@@ -12,8 +11,11 @@ a{
     text-decoration: none;
 
 }
+.primary, .secondary, .outline{
+    padding: 0.5rem;
+}
 .primary {
-    padding: 5px 20px;
+
   background-color: var(--primary);
   border: none;
   color: var(--primary-foreground);
@@ -25,7 +27,7 @@ a{
 }
 
 .secondary{
-    padding: 5px 20px;
+
     background-color: var(--secondary);
     border: none;
     color: var(--secondary-foreground);
@@ -35,7 +37,7 @@ a{
 }
 
 .outline {
-    padding: 5px 20px;
+
     background-color: var(--background);
     color: var(--background-foreground);
     border: 2px solid var(--border);
