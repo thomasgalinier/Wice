@@ -1,6 +1,5 @@
-import Link from "./Link/Link";
 import "./header.css";
-
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <header>
@@ -8,11 +7,8 @@ function Header() {
         <p>WICE</p>
       </div>
       <div className="auth-links">
-        <Link variant="primary" href="#">
-          Connectez-vous
-        </Link>
+        <Link to='login'>Inscription</Link>
       </div>
-
     </header>
   );
 }

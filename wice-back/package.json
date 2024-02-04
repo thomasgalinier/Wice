@@ -27,8 +27,8 @@
     "#policies/*": "./app/policies/*.js",
     "#abilities/*": "./app/abilities/*.js",
     "#database/*": "./database/*.js",
-    "#tests/*": "./tests/*.js",
     "#start/*": "./start/*.js",
+    "#tests/*": "./tests/*.js",
     "#config/*": "./config/*.js"
   },
   "devDependencies": {
@@ -36,6 +36,7 @@
     "@adonisjs/eslint-config": "^1.2.1",
     "@adonisjs/prettier-config": "^1.2.1",
     "@adonisjs/tsconfig": "^1.2.1",
+    "@japa/api-client": "^2.0.2",
     "@japa/assert": "^2.1.0",
     "@japa/plugin-adonisjs": "^3.0.0",
     "@japa/runner": "^3.1.1",
@@ -46,21 +47,18 @@
     "pino-pretty": "^10.3.1",
     "prettier": "^3.2.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3",
-    "vite": "^5.0.12"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "@adonisjs/auth": "^9.1.1",
     "@adonisjs/core": "^6.2.2",
+    "@adonisjs/cors": "^2.2.1",
     "@adonisjs/lucid": "^20.1.0",
     "@adonisjs/session": "^7.1.1",
-    "@adonisjs/shield": "^8.1.0",
-    "@adonisjs/static": "^1.1.1",
-    "@adonisjs/vite": "^2.0.2",
     "@vinejs/vine": "^1.7.1",
-    "better-sqlite3": "^9.3.0",
-    "edge.js": "^6.0.1",
+    "better-sqlite3": "^9.4.0",
     "luxon": "^3.4.4",
+    "mysql2": "^3.9.1",
     "reflect-metadata": "^0.2.1"
   },
   "eslintConfig": {
