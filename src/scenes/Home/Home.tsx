@@ -1,11 +1,16 @@
 import "./Home.css";
-import meet from '../../assets/undraw_meet_the_team_re_4h08.svg'
+import meet from "../../assets/undraw_meet_the_team_re_4h08.svg";
 import Button from "../../components/Button/Button";
-import Link from "../../components/Link/Link";
+import { Link } from "react-router-dom";
+
 function Home() {
+  fetch('http://localhost:3333/me')
+    .then(response=> response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
   return (
     <main>
-      <section>
+      <section className="presentation-section">
         <h1>Créez des événements plus performants.</h1>
         <div className="presentation-container">
           <div className="presentation-text">
@@ -19,23 +24,19 @@ function Home() {
               performants.
             </p>
 
-            <Button variant='third'>Voir nos événements</Button>
+            <Button variant="third">Voir nos événements</Button>
           </div>
           <div className="button-container">
-          <div className="auth">
-            <Link variant='primary' href="#">Connexion</Link>
-            <Link variant='outline' href="#">Inscription</Link>
-          </div>
-            <Button variant='third'>Voir nos événements</Button>
+            <div className="auth">
+              <Link to="login">Connexion</Link>
+              <Link to="register">Inscription</Link>
+            </div>
+            <Button variant="third">Voir nos événements</Button>
           </div>
           <div className="presentation-img-container">
-            <img
-              src={meet}
-              alt="illustration meet the team"
-            />
+            <img src={meet} alt="illustration meet the team" />
           </div>
         </div>
-
       </section>
     </main>
   );

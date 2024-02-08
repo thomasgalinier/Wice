@@ -1,12 +1,53 @@
-import Input from "../../components/Input/Input";
+import "./login.css";
+import { saveToken } from '../../function/cookies'
+import authIllustration from '../../../public/undraw_secure_login_pdn4.svg'
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-    return ( 
-        <form>
-            <label htmlFor='firstname'> FirstName</label>
-            <Input inputType="text" idInput="firstname" />
-        </form>
-     );
+    const navigate = useNavigate();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const email = formData.get("email");
+        const password = formData.get("password");
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        };
+
+        fetch('http://localhost:3333/user/login', requestOptions)
+            .then(response => response.json())
+            .then(result =>  {
+                saveToken(result.token.token);
+            })
+            .catch(error => console.error(error));
+
+        form.reset();
+    };
+
+    return (
+        <section className="login-container">
+            <form onSubmit={handleSubmit}>
+                <div className="input-container">
+                    <label htmlFor="email">Email</label>
+                    <input name="email" type="email" id="email" placeholder="email" />
+                </div>
+                <div className="input-container">
+                    <label htmlFor="password">Mot de passe</label>
+                    <input name="password" type="password" id="password" placeholder="mot de passe" />
+                </div>
+                <button type="submit" className="primary">Connectez-vous</button>
+            </form>
+            <img src={authIllustration} alt="secure login" />
+        </section>
+    );
 }
 
 export default Login;

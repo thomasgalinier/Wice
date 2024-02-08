@@ -28,7 +28,84 @@
   --third-hover: #f4959bd3;
   --third-foreground: #ffffff;  
 }
+label{
+  font-family: var(--font-primary);
+}
 body{
   width: 100vw;
   margin: 0;
 }
+input{
+  font-family: var(--font-primary);
+  padding: 0.5rem;
+
+}
+input:focus{
+  outline: none;
+  border-style:solid;
+  border-width:2px;
+  border-color: var(--third);
+  border-radius:4px ;
+}
+button{
+    
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: var(--font-primary);
+}
+.primary {
+  background-color: var(--primary);
+  border: none;
+  color: var(--primary-foreground);
+
+}
+.primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.secondary{
+    background-color: var(--secondary);
+    border: none;
+    color: var(--secondary-foreground);
+}
+.secondary:hover{
+    background-color: var(--secondary-hover);
+}
+.third{
+
+        background-color: var(--third);
+        border: none;
+        color: var(--third-foreground);
+      
+}
+.third:hover{
+    background-color: var(--third-hover);
+}
+.outline {
+    background-color: var(--background);
+    color: var(--background-foreground);
+    border: 2px solid var(--border);
+}
+.outline:hover{
+    border: 2px solid var(--primary);
+}
+
+.link{
+    color: var(--primary);
+    border: none;
+    background-color: var(--background);
+}
+.link:hover{
+    text-decoration:  var(--primary) underline;
+}
+
+.disabled{
+    cursor: default;
+    border: none;
+    background-color: var(--muted);
+
+}
+
+

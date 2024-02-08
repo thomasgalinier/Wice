@@ -2,7 +2,7 @@ h1, p {
     font-family: var(--font-primary);
 }
 
-section{
+.presentation-section{
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -48,7 +48,7 @@ img{
 }
 @media only screen and (max-width:768px) {
     
-    section {
+    .presentation-section {
         justify-content: space-around;
     }
     .presentation-img-container{
