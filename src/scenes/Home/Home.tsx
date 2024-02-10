@@ -3,11 +3,12 @@ import meet from "../../assets/undraw_meet_the_team_re_4h08.svg";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 
+
 function Home() {
-  fetch('http://localhost:3333/me')
-    .then(response=> response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+
+
+
+  
   return (
     <main>
       <section className="presentation-section">

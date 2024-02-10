@@ -1,11 +1,11 @@
-.login-container{
+.auth-container{
     height: calc(100vh - 12vh);
     display: flex;
 }
-.login-container img{
+.auth-container img{
     width: 50%;
 }
-form{
+.auth-container form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,4 +21,12 @@ form{
     gap: 1rem;
 }
 
+@media only screen and (max-width: 768px) {
+    .auth-container img{
+        display: none;
+    }
+    .auth-container form{
+        width: 80%;
+    }
+}
 

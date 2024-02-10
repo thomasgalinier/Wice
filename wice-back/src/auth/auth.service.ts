@@ -14,6 +14,7 @@ import { ConfigService } from '@nestjs/config';
 import { ResetPasswordDemandDto } from './dto/resetPasswordDemandDto';
 import * as speakeasy from 'speakeasy';
 import { ResetPasswordConfirmationDto } from './dto/resetPasswordConfirmationDto';
+import { DeleteAccountDto } from './dto/deleteAccountDto';
 @Injectable()
 export class AuthService {
   constructor(
@@ -92,16 +93,46 @@ export class AuthService {
     // ** Vérifier si l'utitilisateur existe
     const user = await this.prismaService.user.findUnique({ where: { email } });
     if (!user) throw new NotFoundException('User not found');
-   const match =  speakeasy.totp.verify({
+    const match = speakeasy.totp.verify({
       secret: this.configService.get('OTP_CODE'),
       token: code,
       digits: 5,
       step: 60 * 30,
       encoding: 'base32',
-    })
-    if(!match) throw new UnauthorizedException("Invalid/expired token")
-    const hash = await bcrypt.hash(password, 10)
-    await this.prismaService.user.update({where:{email}, data:{password : hash}})
-    return {data: "Password updated"}
+    });
+    if (!match) throw new UnauthorizedException('Invalid/expired token');
+    const hash = await bcrypt.hash(password, 10);
+    await this.prismaService.user.update({
+      where: { email },
+      data: { password: hash },
+    });
+    return { data: 'Password updated' };
+  }
+  async deleteAccount(userId: number, deleteAccountDto: DeleteAccountDto) {
+    const { password } = deleteAccountDto;
+    const user = await this.prismaService.user.findUnique({
+      where: { userId },
+    });
+    if (!user) throw new NotFoundException('User not found');
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) throw new UnauthorizedException('Password does not match');
+    await this.prismaService.user.delete({where:{userId}})
+    return {data : "User successfully deleted"}
+  }
+
+async getUserInfo(userId: number) {
+    const user = await this.prismaService.user.findUnique({
+      where: { userId },
+      select: {
+        firstname: true,
+        lastname: true,
+        iconurl: true,
+        accesstype: true,
+        email: true,
+        userId: true,
+      },
+    });
+    if (!user) throw new NotFoundException('User not found');
+    return user;
   }
 }
