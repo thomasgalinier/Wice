@@ -1,9 +1,10 @@
 .auth-container{
     height: calc(100vh - 12vh);
     display: flex;
+    justify-content: space-around;
 }
 .auth-container img{
-    width: 50%;
+    width: 40%;
 }
 .auth-container form{
     display: flex;

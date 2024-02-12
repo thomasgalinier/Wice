@@ -6,11 +6,12 @@ h1, p {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    height: calc(100vh - 135px);
+    height: calc(100vh - 110px);
     width: 100%;
     justify-content: flex-start;
     align-items: center;
     background-color: var(--background2)  ;
+    justify-content: center;
 }
 h1{
     color: var(--primary);

@@ -29,8 +29,8 @@ function Home() {
           </div>
           <div className="button-container">
             <div className="auth">
-              <Link to="login">Connexion</Link>
-              <Link to="register">Inscription</Link>
+              <Link to="login" className="outline">Connexion</Link>
+              <Link to="register" className="primary">Inscription</Link>
             </div>
             <Button variant="third">Voir nos événements</Button>
           </div>
