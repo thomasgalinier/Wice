@@ -28,7 +28,7 @@ function Login() {
       .then((response) => response.json())
       .then((result) => {
         navigate("/");
-        Cookies.set('jwt_token', result.token, { expires: 2}); // 'expires' définit la durée de vie du cookie en jours
+        Cookies.set('jwt_token', result.token, { expires: 2});
         console.log(result);
       })
       .catch((error) => console.error(error));

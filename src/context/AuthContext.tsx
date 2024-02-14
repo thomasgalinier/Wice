@@ -8,6 +8,7 @@ interface User {
   iconurl: string,
   userId: number,
   accesstype: string
+  email: string
 }
 
 interface AuthContextType {
@@ -19,8 +20,8 @@ const AuthContext = createContext<AuthContextType>({ user: null });
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
+  const jwtToken = Cookies.get('jwt_token');
   useEffect(() => {
-    const jwtToken = Cookies.get('jwt_token');
     if (jwtToken) {
       fetch('http://localhost:3000/auth/user/me', {
         method: 'GET',
@@ -30,7 +31,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       .then(data => setUser(data))
       .catch(error => console.error(error));
     }
-  }, []);
+  }, [jwtToken]);
 
   return (
     <AuthContext.Provider value={{  user }}>

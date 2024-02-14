@@ -51,7 +51,7 @@ button , a{
     
   padding: 10px 20px;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 0.75rem;
   cursor: pointer;
   font-family: var(--font-primary);
   text-decoration: none;
@@ -92,7 +92,11 @@ button , a{
 .outline:hover{
     border: 2px solid var(--primary);
 }
-
+.destructive{
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
+  border: none;
+}
 .link{
     color: var(--primary);
     border: none;

@@ -6,7 +6,7 @@ h1, p {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
-    height: calc(100vh - 110px);
+    height: calc(100vh - 12vh);
     width: 100%;
     justify-content: flex-start;
     align-items: center;
@@ -28,7 +28,7 @@ h1{
     margin-top: 5rem;
     width:30%;
 }
-.presentation-text button
+.presentation-text 
 {
     margin-top: 5rem;
 }

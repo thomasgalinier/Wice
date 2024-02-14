@@ -6,6 +6,8 @@ import Home from './scenes/Home/Home.tsx'
 import Header from './components/Header.tsx'
 import Login from './scenes/Login/Login.tsx'
 import Register from './scenes/Register/Register.tsx'
+import User from './scenes/User/User.tsx'
+
 
 
 const router = createBrowserRouter([
@@ -31,6 +33,15 @@ const router = createBrowserRouter([
     element: (
       <>
         <Register />
+      </>
+    )
+  },
+  {
+    path:'/user',
+    element:(
+      <>
+      <Header />
+      <User />
       </>
     )
   }

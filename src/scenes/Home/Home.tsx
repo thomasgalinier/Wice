@@ -2,13 +2,17 @@ import "./Home.css";
 import meet from "../../assets/undraw_meet_the_team_re_4h08.svg";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 
 function Home() {
 
+  const { user } = useAuth();
+  console.log(user);
+
+  const userIsConnect = user != null;
 
 
-  
   return (
     <main>
       <section className="presentation-section">
@@ -28,10 +32,13 @@ function Home() {
             <Button variant="third">Voir nos événements</Button>
           </div>
           <div className="button-container">
-            <div className="auth">
-              <Link to="login" className="outline">Connexion</Link>
-              <Link to="register" className="primary">Inscription</Link>
-            </div>
+            {!userIsConnect ?
+              <div className="auth">
+                <Link to="login" className="outline">Connexion</Link>
+                <Link to="register" className="primary">Inscription</Link>
+              </div>
+              : null
+            }
             <Button variant="third">Voir nos événements</Button>
           </div>
           <div className="presentation-img-container">

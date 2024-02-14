@@ -16,9 +16,7 @@ function Header() {
         </Link>
       </div>
       {userIsConnect ? (
-        <AvatarIcon url={user.iconurl}>
-
-        </AvatarIcon>
+        <AvatarIcon url={user.iconurl}  />
       ) : (
         <div className="auth-links">
           <Link to="/login" className="outline">
