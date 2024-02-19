@@ -1,13 +1,14 @@
+import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import AvatarIcon from "./AvatarIcon/AvatarIcon";
 import "./header.css";
 import { Link } from "react-router-dom";
 function Header() {
   const {user} = useAuth();
-  console.log(user);
+
   
   const userIsConnect = user != null;
-  console.log(userIsConnect);
+
   return (
     <header>
       <div className="logo">

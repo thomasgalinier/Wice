@@ -13,6 +13,8 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
+  updateUser: (userData: User | null) => void; 
+
 }
 
 const AuthContext = createContext<AuthContextType>({ user: null });
@@ -29,12 +31,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       })
       .then(response => response.json())
       .then(data => setUser(data))
-      .catch(error => console.error(error));
+      .catch(error => setUser(null));
     }
   }, [jwtToken]);
-
+  const updateUser = (userData: User | null) => {
+    setUser(userData);
+  };
   return (
-    <AuthContext.Provider value={{  user }}>
+    <AuthContext.Provider value={{  user, updateUser }}>
       {children}
     </AuthContext.Provider>
   );

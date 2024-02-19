@@ -11,13 +11,38 @@ datasource db {
 }
 
 model User {
-  userId     Int      @id @default(autoincrement())
-  firstname  String   @db.VarChar(65)
-  lastname   String   @db.VarChar(65)
-  email      String   @db.VarChar(255) @unique
-  password   String   @db.VarChar(255)
-  accesstype String   @db.VarChar(65)
-  iconurl    String   @db.VarChar(255)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  userId              Int                @id @default(autoincrement())
+  firstname           String             @db.VarChar(65)
+  lastname            String             @db.VarChar(65)
+  email               String             @unique @db.VarChar(255)
+  password            String             @db.VarChar(255)
+  accesstype          String             @db.VarChar(65)
+  iconurl             String             @db.VarChar(255)
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+  events              EventParticipant[]
+  eventsCreatedByUser Event[]            @relation("EventCreatedByUser")
+}
+
+model Event {
+  idEvent      Int                @id @default(autoincrement())
+  title        String             @db.VarChar(255)
+  description  String             @db.Text()
+  imgsrc       String             @db.VarChar(255)
+  date         DateTime           @db.DateTime()
+  duration     String             @db.VarChar(10) 
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+  participants EventParticipant[]
+  createdBy    User               @relation("EventCreatedByUser", fields: [createdById], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  createdById  Int
+}
+
+model EventParticipant {
+  id      Int   @id @default(autoincrement())
+  rating  Int
+  user    User  @relation(fields: [userId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
+  userId  Int
+  event   Event @relation(fields: [eventId], references: [idEvent], onDelete: Cascade, onUpdate: Cascade)
+  eventId Int
 }

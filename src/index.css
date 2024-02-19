@@ -28,7 +28,17 @@
   --third-hover: #f4959bd3;
   --third-foreground: #ffffff;  
 }
-label{
+textarea{
+  resize: none;
+  font-family: var(--font-primary);
+}
+hr{
+  border: 1px solid  var(--border);
+}
+h2{
+  margin-bottom: 0;
+}
+label,h2{
   font-family: var(--font-primary);
 }
 body{

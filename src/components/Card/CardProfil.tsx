@@ -19,7 +19,7 @@ function CardProfil({ iconSrc, email, firstName, lastName }: Props) {
             <p><strong>{firstName} {lastName}</strong></p>
             <p>{email}</p>
             <div className='button-card-container'>
-            <button className='primary'>Changé de mot de passe</button>
+            <button className='primary'>Changer de mot de passe</button>
             <button className='third' onClick={handleDisconnected}>Se déconnectez</button>
             </div>
         </div>

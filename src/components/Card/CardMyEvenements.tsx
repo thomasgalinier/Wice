@@ -12,6 +12,8 @@ function CardMyEvenements() {
     return ( 
         <>
         <section className="card-container">
+            <h2>Mes évenements organiser</h2>
+            <hr />
             <button className="primary" onClick={openModal}>Créez un évenements </button>
             
         </section>

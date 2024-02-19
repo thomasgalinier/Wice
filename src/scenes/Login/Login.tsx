@@ -2,9 +2,12 @@ import "./login.css";
 import authIllustration from "../../../public/undraw_secure_login_pdn4.svg";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie"
+import { useContext } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 function Login() {
   const navigate = useNavigate();
+  const {updateUser} = useAuth()
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -28,8 +31,8 @@ function Login() {
       .then((response) => response.json())
       .then((result) => {
         navigate("/");
-        Cookies.set('jwt_token', result.token, { expires: 2});
-        console.log(result);
+        Cookies.set('jwt_token', result.token, { expires: 48});
+        updateUser(result)
       })
       .catch((error) => console.error(error));
 
