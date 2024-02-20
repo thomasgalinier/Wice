@@ -1,20 +1,42 @@
 import './modal.css'
+import Cookies from 'js-cookie'
 type Props = {
     closeModal: () => void
 }
-const handleCreateEvent = (e) => {
-    e.preventDefault()
-    const form = e.target;
-    const formData = new FormData(form);
-    const title = formData.get("title");
-    const image = formData.get("image");
-    const date = formData.get("date");
-    const dure = formData.get("dure");
-    const description = formData.get("description")
-    console.log(title, date, image, dure, description);
-}
 
 function Modal({ closeModal }: Props) {
+    const jwtToken = Cookies.get('jwt_token');
+    const handleCreateEvent = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const formData = new FormData(form);
+        const title = formData.get("title");
+        const image = formData.get("image");
+        const date = formData.get("date");
+        const duration = formData.get("dure");
+        const description = formData.get("description")
+        
+        const requestOptions = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${jwtToken}`
+            },
+            body: JSON.stringify({
+              title: title,
+              imgSrc: image,
+              description: description,
+              date: date,
+              duration: duration
+            }),
+          };
+    
+        fetch('http://localhost:3000/event/create', requestOptions)
+          .then((response)=>response.json())
+          .then((data)=>console.log(data))
+          .catch((error)=>console.error(error))
+    }
+    
     return (
         <div className="modal">
             <form onSubmit={handleCreateEvent} className="modal-content">

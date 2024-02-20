@@ -4,8 +4,10 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class EventService {
-   async create(createEventDto: CreateEventDto, imgSrc: Express.Multer.File, userId: any) {
-        const { title, description, date, duration } = createEventDto;
+   async create(createEventDto: CreateEventDto, userId: any) {
+        const { title, description, date, duration ,imgSrc } = createEventDto;
+        console.log(imgSrc);
+        
         const imagePath = imgSrc.path;
         await this.prismaService.event.create({ data: { title, description, imgsrc: imagePath, date, duration, createdById:userId  } });
         return { data: "Event created!" };

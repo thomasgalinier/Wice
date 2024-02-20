@@ -11,6 +11,8 @@ function Register() {
     const lastName = formData.get("lastName");
     const email = formData.get("email");
     const password = formData.get("password");
+    const iconUrl = `https://api.dicebear.com/7.x/micah/svg?seed=${email}`
+    const accessType = 'user'
 
     const requestOptions = {
       method: "POST",
@@ -22,8 +24,6 @@ function Register() {
         lastname: lastName,
         email: email,
         password: password,
-        iconurl: `https://api.dicebear.com/7.x/micah/svg?seed=${email}`,
-        accesstype:"user"
       }),
     };
 
