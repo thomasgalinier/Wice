@@ -1,6 +1,19 @@
-.user-container{
-    padding: 20px;
+.user-container {
+    padding: 1rem 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
+    
+}
+
+.card-container {
+    flex: 1; /* Chaque carte va occuper l'espace disponible */
+    margin: 0 10px; /* Ajoutez une marge entre les cartes pour l'esthétique */
+}
+
+.card-profil {
+    flex-basis: 20%; /* Définissez la largeur de la première carte à 30% */
+}
+
+.card-my-evenements {
+    flex-basis: 80%; /* Définissez la largeur de la deuxième carte à 70% */
 }

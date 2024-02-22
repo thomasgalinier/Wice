@@ -11,7 +11,6 @@ function Modal({ closeModal }: Props) {
         const form = e.target;
         const formData = new FormData(form);
         const title = formData.get("title");
-        const image = formData.get("image");
         const date = formData.get("date");
         const duration = formData.get("dure");
         const description = formData.get("description")
@@ -24,10 +23,9 @@ function Modal({ closeModal }: Props) {
             },
             body: JSON.stringify({
               title: title,
-              imgSrc: image,
               description: description,
-              date: date,
-              duration: duration
+              dateTime: date,
+              duration: duration,
             }),
           };
     
@@ -43,10 +41,7 @@ function Modal({ closeModal }: Props) {
                 <span className="close" onClick={closeModal}>&times;</span>
                 <label htmlFor="title"className='label-title'>Title</label>
                 <input name='title' id='title' className="input-title" type="text" placeholder='Titre' />
-                <div className='input-modal-container'>
-                    <label htmlFor="image">Image:</label>
-                    <input name="image" id='image' type="file" />
-                </div>
+                
                 <div className='input-modal-container'>
                     <label htmlFor="date">Date:</label>
                     <input name='date' id='date' type="datetime-local" />

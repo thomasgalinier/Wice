@@ -1,17 +1,14 @@
-import { IsNotEmpty } from "class-validator";
-export class CreateEventDto {
+import { IsNotEmpty } from "class-validator"
+export class createEventDto{
     @IsNotEmpty()
-    readonly title : string
+    readonly title: string
 
     @IsNotEmpty()
-    readonly description: string
-
-    @IsNotEmpty()
-    readonly imgSrc: string
-    
-    @IsNotEmpty()
-    readonly date: string 
+    readonly dateTime: string
 
     @IsNotEmpty()
     readonly duration: string
+
+    @IsNotEmpty()
+    readonly description: string
 }

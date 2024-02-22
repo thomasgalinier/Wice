@@ -20,10 +20,12 @@ function Register() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        iconurl: iconUrl,
         firstname: firstName,
         lastname: lastName,
         email: email,
         password: password,
+        accesstype: accessType
       }),
     };
 

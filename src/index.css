@@ -35,14 +35,16 @@ textarea{
 hr{
   border: 1px solid  var(--border);
 }
+h3{
+  margin: 0;
+}
 h2{
   margin-bottom: 0;
 }
-label,h2{
+label,h2, h3{
   font-family: var(--font-primary);
 }
 body{
-  width: 100vw;
   margin: 0;
 }
 input{

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Event` MODIFY `date` VARCHAR(255) NOT NULL;

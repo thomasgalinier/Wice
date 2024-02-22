@@ -1,0 +1,16 @@
+.events-card h2{
+    margin: 0;
+}
+.event-card{
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: var(--border) 1.95px 1.95px 2.6px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;   
+}
+.event-container{
+    display: flex;
+    gap: 1rem;
+}

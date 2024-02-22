@@ -7,7 +7,7 @@ function Header() {
   const {user} = useAuth();
 
   
-  const userIsConnect = user != null;
+  const userIsConnect = user != null ;
 
   return (
     <header>

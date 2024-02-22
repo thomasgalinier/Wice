@@ -14,7 +14,7 @@ function CardProfil({ iconSrc, email, firstName, lastName }: Props) {
         navigate('/')
     }
     return (
-        <div className="cardprofil-container card-container">
+        <div className="cardprofil-container card-contain">
             <img src={iconSrc} alt="icon-logo" />
             <p><strong>{firstName} {lastName}</strong></p>
             <p>{email}</p>

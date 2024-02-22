@@ -6,6 +6,7 @@ import { MailerModule } from './mailer/mailer.module';
 import { EventModule } from './event/event.module';
 
 
+
 @Module({
   imports: [ConfigModule.forRoot({ isGlobal: true }), AuthModule, PrismaModule, MailerModule, EventModule],
 })
