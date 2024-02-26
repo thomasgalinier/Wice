@@ -39,7 +39,7 @@ model Event {
 
 model EventParticipant {
   id      Int   @id @default(autoincrement())
-  rating  Int
+  rating  Int?
   user    User  @relation(fields: [userId], references: [userId], onDelete: Cascade, onUpdate: Cascade)
   userId  Int
   event   Event @relation(fields: [eventId], references: [idEvent], onDelete: Cascade, onUpdate: Cascade)

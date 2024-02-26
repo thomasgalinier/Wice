@@ -4,9 +4,7 @@ export const fetchUsers = async (jwtToken: string | undefined) => {
         method:'GET', 
         headers: { "Authorization": `Bearer ${jwtToken}` }
         
-    })
-    console.log(res);
-    
+    })    
     if(!res.ok){
         return null
     }

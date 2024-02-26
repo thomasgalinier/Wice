@@ -3,6 +3,9 @@ import './cardMyEvenements.css'
 import Modal from "../Modal/Modal";
 import dayjs from 'dayjs';
 import Cookies from "js-cookie";
+import { useQuery } from "@tanstack/react-query";
+import { getEventById } from "../../api/event";
+import ModalUpdateEvent from "../Modal/ModalUpdateEvent";
 
 type Event = {
     idEvent: number;
@@ -38,10 +41,11 @@ function formatDuration(input: string) {
 
 function CardMyEvenements({ events }: Props) {
     const [showModal, setShowModal] = useState(false);
-    const [startIndex, setStartIndex] = useState(0); // Indice de la première carte dans le carrousel
+    const [startIndex, setStartIndex] = useState(0); 
+    const [showModalUpdate, setShowModalUpdate] = useState(false);
     const totalEvents = events.length === 0 ? null : events.eventsCreatedByUser.length;
     const jwtToken = Cookies.get('jwt_token');
-
+    const [event, setEvent] = useState(null)
 
     const openModal = () => {
         setShowModal(true)
@@ -49,6 +53,9 @@ function CardMyEvenements({ events }: Props) {
 
     const closeModal = () => {
         setShowModal(false)
+    }
+    const closeModalUpdate = () => {
+        setShowModalUpdate(false)
     }
 
     const nextSlide = () => {
@@ -76,6 +83,29 @@ function CardMyEvenements({ events }: Props) {
             .then((data) => console.log(data))
             .catch((error) => console.error(error))
     }
+
+       
+const handleUpdate = async (eventId: number) => {
+    try {
+        const jwtToken = Cookies.get('jwt_token');
+
+        if (!jwtToken) {
+            console.error('JWT Token is not defined.');
+            return;
+        }
+        const eventData = await getEventById(eventId, jwtToken);
+
+        if (eventData) {
+            setEvent(eventData);
+            setShowModalUpdate(true)
+        } else {
+            console.error('Failed to retrieve event data.');
+        }
+    } catch (error) {
+        console.error('Error fetching event data:', error);
+    }
+}
+
     return (
         <section className="card-contain card-myevents">
             <h2>Mes événements organisés</h2>
@@ -98,7 +128,7 @@ function CardMyEvenements({ events }: Props) {
                                 <p className="text-event-card">Durée: {formattedDuration} </p>
                                 <div className="button-event-card-container">
                                     <button className="secondary">Voir en détail</button>
-                                    <button className="third">Modifier</button>
+                                    <button onClick={()=>handleUpdate(event.idEvent)} className="third" >Modifier</button>
                                     <button onClick={() => onDelete(event.idEvent)} className="destructive">Supprimer</button>
                                 </div>
                             </div>
@@ -106,6 +136,9 @@ function CardMyEvenements({ events }: Props) {
                     })}
                 </div>
             ) : null}
+            {showModalUpdate && (
+                <ModalUpdateEvent event={event} closeModal={closeModalUpdate}/>
+            )}
             {showModal && (
                 <Modal closeModal={closeModal} />
             )}

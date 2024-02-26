@@ -5,14 +5,16 @@ import { useAuth } from "../../context/AuthContext";
 import './user.css'
 import Cookies from "js-cookie";
 import CardEvents from "../../components/Card/CardEvents";
+import { useQuery } from "@tanstack/react-query";
+import { participating } from "../../api/event";
 
 function User() {
     const [eventCreated, setEventCreated] = useState([])
     const [allEvent, setAllEvent] = useState([])
     const { user } = useAuth()
     const jwtToken = Cookies.get('jwt_token');
-    console.log(eventCreated);
 
+    
     useEffect(() => {
         const requestOptions = {
             method: "GET",
@@ -34,7 +36,7 @@ function User() {
     
 
     return (
-        <>
+        <main>
             <section className="user-container">
                 <div className="card-container card-profil">
                     <CardProfil iconSrc={user?.iconurl} email={user?.email} firstName={user?.firstname} lastName={user?.lastname} />
@@ -48,7 +50,7 @@ function User() {
                     <CardEvents events={allEvent} />
                 </div>
             </section>
-        </>
+        </main>
     );
 }
 

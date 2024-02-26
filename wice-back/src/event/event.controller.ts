@@ -56,4 +56,25 @@ export class EventController {
     const userId = request.user['userId'];
     return this.eventService.update(eventId, userId, updateEventDto);
   }
+  @UseGuards(AuthGuard('jwt'))
+  @Get(':id')
+  async getById(@Param('id', ParseIntPipe) eventId: number){
+    return this.eventService.getById(eventId)
+  }
+  
+  @UseGuards(AuthGuard('jwt'))
+  @Post(':id/register')
+  async registerToEvent(@Param('id', ParseIntPipe) eventId: number, @Req() request: Request){
+    const userId = request.user['userId']; 
+    return this.eventService.registerToEvent(eventId, userId);
+  }
+
+@UseGuards(AuthGuard('jwt'))
+@Get('participated')
+async getEventsParticipatedByUser(@Req() request: Request) {
+  const userId = request.user['userId'];
+  return this.eventService.getEventsParticipatedByUser(userId);
+}
+
+
 }

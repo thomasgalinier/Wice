@@ -12,7 +12,9 @@ function CardProfil({ iconSrc, email, firstName, lastName }: Props) {
     const handleDisconnected = () => {
         Cookies.remove('jwt_token')
         navigate('/')
+        location.reload()
     }
+    
     return (
         <div className="cardprofil-container card-contain">
             <img src={iconSrc} alt="icon-logo" />

@@ -47,6 +47,35 @@ img{
 .button-container{
     display: none;
 }
+
+.home-event-btn{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.home-event-btn svg {
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.home-event-btn path {
+    transition: transform 0.3s ease;
+}
+.home-event-btn:hover svg {
+    animation: rotateArrow 1s infinite linear;
+}
+.home-event-btn:focus svg path {
+    transform: translateX(100px);
+}
+@keyframes rotateArrow {
+    0% {
+        transform: rotateX(0deg);
+    }
+    100% {
+        transform: rotateX(360deg);
+    }
+}
 @media only screen and (max-width:768px) {
     
     .presentation-section {
@@ -78,6 +107,7 @@ img{
         gap: 3rem;
     }
     h1{
+        font-size: 2rem;
         text-align: center;
     }
     .presentation-text button{

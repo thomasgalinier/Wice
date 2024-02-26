@@ -3,10 +3,12 @@
 import { useState } from 'react';
 import dayjs from 'dayjs';
 import './CardEvents.css';
-
+import Cookies from 'js-cookie';
 
 function CardEvents({ events }) {
-    const [isParticipating, setIsParticipating] = useState(false);
+
+
+    const jwtToken = Cookies.get('jwt_token');
 
     function formatDuration(input: string) {
         const [hours, minutes] = input.split(':');
@@ -14,9 +16,15 @@ function CardEvents({ events }) {
         return formattedDuration;
     }
 
-    const handleParticipation = () => {
-        setIsParticipating(!isParticipating);
-        // Autres actions à effectuer lors de la participation...
+    const handleParticipation = (idEvent: number) => {
+        const requestOption = {
+            method: 'POST',
+            headers:{ "Authorization": `Bearer ${jwtToken}`}
+        }
+        fetch(`http://localhost:3000/event/${idEvent}/register`, requestOption)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error=> console.error(error))
     };
 
     return (
@@ -41,7 +49,7 @@ function CardEvents({ events }) {
                                 <p className='text-event-card'>{event.description}</p>
                             </div>
                             <p className="text-event-card">Durée: {formattedDuration} </p>
-                            <button className='primary'>Participer</button>
+                            <button className='primary' onClick={()=> handleParticipation(event.idEvent)}>Participer</button>
                         </div>
                     );
                 })}
