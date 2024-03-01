@@ -39,7 +39,7 @@ function Login() {
   };
 
   return (
-    <section className="auth-container">
+    <main className="auth-container">
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label htmlFor="email">Email</label>
@@ -59,7 +59,7 @@ function Login() {
         </button>
       </form>
       <img src={authIllustration} alt="secure login" />
-    </section>
+    </main>
   );
 }
 

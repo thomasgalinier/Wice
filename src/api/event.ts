@@ -20,15 +20,3 @@ export const registerEvent = async(idEvent: number, jwtToken: string) => {
     }
     return res
 }
-
-export const participating = async( jwtToken: string | undefined) => {
-    const requestOption = {
-        method: 'GET',
-        headers:{ "Authorization": `Bearer ${jwtToken}`}
-    };
-
-    const res = await fetch(`http://localhost:3000/event/participated`, requestOption);
-
-
-    return res.json();
-};
